@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chris McAndrew — Problem to Solution</title>
+  <meta name="description" content="Product builder with deep technical literacy — turning real problems into shipped solutions." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Chris McAndrew — Problem to Solution" />
+  <meta property="og:description" content="A series of projects that take real problems from idea to working solution — execution, process, and technical problem-solving." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ─── Nav ─────────────────────────────────────────── -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="#top" class="nav__brand">CM<span class="nav__dot">.</span></a>
+      <nav class="nav__links">
+        <a href="#work">Work</a>
+        <a href="#approach">Approach</a>
+        <a href="mailto:mcandrew.chris@gmail.com" class="nav__cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ─── Hero ──────────────────────────────────────── -->
+    <section class="hero">
+      <p class="eyebrow reveal">Product · Engineering · Ship discipline</p>
+      <h1 class="hero__title reveal">
+        Problem to solution,<br /><span class="hero__accent">on repeat.</span>
+      </h1>
+      <p class="hero__lede reveal">
+        Every project here starts with a real problem — friction worth solving,
+        not a market to chase. What they show is execution: the technical range
+        to build the fix, and the discipline to ship it.
+      </p>
+      <div class="hero__meta reveal">
+        <span class="pipe">Problem</span>
+        <span class="pipe__arrow">→</span>
+        <span class="pipe">Build</span>
+        <span class="pipe__arrow">→</span>
+        <span class="pipe">Ship</span>
+        <span class="pipe__arrow">→</span>
+        <span class="pipe">Solved</span>
+      </div>
+    </section>
+
+    <!-- ─── Featured project: Always Early ────────────── -->
+    <section id="work" class="work">
+      <div class="section-head reveal">
+        <span class="section-head__num">01</span>
+        <h2>Featured work</h2>
+      </div>
+
+      <article class="featured reveal" style="--accent:#2DD4BF; --accent-soft:rgba(45,212,191,.12);">
+        <div class="featured__main">
+          <div class="featured__head">
+            <div class="featured__badge">
+              <span class="status status--live"></span>Live · Chrome Web Store
+            </div>
+            <div class="featured__icon">
+              <img src="assets/always-early/logo.png" alt="Always Early logo" />
+            </div>
+          </div>
+
+          <h3 class="featured__title">Always Early</h3>
+          <p class="featured__tagline">Your next meeting, already open.</p>
+          <p class="featured__hook">
+            Back-to-back calendar days tax you with the same micro-friction:
+            hunting for the right meeting link and watching the clock. Always
+            Early removes it — the right meeting opens itself, a beat before it starts.
+          </p>
+
+          <div class="featured__cta">
+            <a class="store-badge store-badge--chrome" href="https://chromewebstore.google.com/detail/always-early/akldicagkcpdaleldcnolfphcojhaong" target="_blank" rel="noopener">
+              <img class="store-badge__logo" src="assets/badges/chrome-logo.svg" alt="" aria-hidden="true" />
+              <span class="store-badge__text"><small>Available in the</small>Chrome Web Store</span>
+            </a>
+          </div>
+
+          <div class="shots">
+            <figure class="shot">
+              <img src="assets/always-early/settings.png" loading="lazy"
+                   alt="Always Early popup — calendar connected, set your lead time, save." />
+              <figcaption>Set it once — calendar connected, choose your lead time.</figcaption>
+            </figure>
+          </div>
+
+          <ul class="chips">
+            <li>Chrome MV3</li>
+            <li>Vanilla JS</li>
+            <li>Google Calendar API</li>
+            <li>chrome.alarms</li>
+            <li>Zero build</li>
+          </ul>
+
+          <details class="expand">
+            <summary>
+              <span class="expand__label">The ship-cycle</span>
+              <span class="expand__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="expand__body">
+              <div class="row">
+                <span class="row__k">01 / Problem</span>
+                <p class="row__v">Back-to-back meetings mean constant link-hunting and clock-watching.</p>
+              </div>
+              <div class="row">
+                <span class="row__k">02 / Solution</span>
+                <div class="row__v">
+                  <p>Reads Google Calendar (read-only OAuth), schedules a per-event <code>chrome.alarms</code> trigger, and opens the right link 2 minutes before start.</p>
+                  <figure class="row__shot">
+                    <img src="assets/always-early/payoff.png" loading="lazy"
+                         alt="A Google Meet tab that opened itself just before the meeting." />
+                    <figcaption>The meeting opens itself, a beat before it starts.</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="row">
+                <span class="row__k">03 / Hard part</span>
+                <p class="row__v">Manifest V3 suspends service workers, so timing runs on persisted alarms (<code>meeting::&lt;eventId&gt;</code>) plus <code>chrome.storage.session</code>, with silent 401 token refresh.</p>
+              </div>
+              <div class="row">
+                <span class="row__k">04 / PM insight</span>
+                <p class="row__v">Shipped, got rejected for one unneeded permission, then <em>removed it and resubmitted</em> rather than arguing. Minimal-permission, zero-dependency by design — the maturity is in what's left out.</p>
+              </div>
+              <div class="expand__links">
+                <a href="https://github.com/cbmca/meeting-concierge" target="_blank" rel="noopener">Source ↗</a>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="featured reveal" style="--accent:#1E90FF; --accent-soft:rgba(30,144,255,.12);">
+        <div class="featured__main">
+          <div class="featured__head">
+            <div class="featured__badge">
+              <span class="status status--live"></span>Live · App Store
+            </div>
+            <div class="featured__icon">
+              <img src="assets/stathlon/logo.png" alt="Stathlon logo" />
+            </div>
+          </div>
+
+          <h3 class="featured__title">Stathlon</h3>
+          <p class="featured__tagline">Stats tell the story. Highlights prove it.</p>
+          <p class="featured__hook">
+            Baseball already has a dozen scoring apps — youth volleyball and flag
+            football have almost none. Stathlon scores, streams, and clips
+            highlights live for exactly the sports the big apps overlook.
+          </p>
+
+          <div class="featured__cta">
+            <a class="store-badge store-badge--apple" href="https://apps.apple.com/us/app/stathlon/id6760131064" target="_blank" rel="noopener">
+              <img src="assets/badges/app-store.svg" alt="Download Stathlon on the App Store" />
+            </a>
+          </div>
+
+          <div class="shots shots--phones">
+            <figure class="shot">
+              <img src="assets/stathlon/football-hero.png" loading="lazy"
+                   alt="Stathlon flag-football marketing shot — scoring a game live on the field." />
+            </figure>
+            <figure class="shot">
+              <img src="assets/stathlon/volleyball-hero.png" loading="lazy"
+                   alt="Stathlon volleyball marketing shot — scoring a match courtside in the gym." />
+            </figure>
+          </div>
+
+          <ul class="chips">
+            <li>React Native</li>
+            <li>Supabase</li>
+            <li>Social login</li>
+            <li>StoreKit IAP</li>
+            <li>AWS IVS streaming</li>
+            <li>Cloudflare R2</li>
+            <li>Native Swift</li>
+            <li>CI/CD → TestFlight</li>
+          </ul>
+
+          <details class="expand">
+            <summary>
+              <span class="expand__label">The ship-cycle</span>
+              <span class="expand__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="expand__body">
+              <div class="row">
+                <span class="row__k">01 / Problem</span>
+                <p class="row__v">At volleyball and flag-football games, parents juggle a paper scorebook, a phone camera, and a group chat — and the best moments vanish unrecorded.</p>
+              </div>
+              <div class="row">
+                <span class="row__k">02 / Solution</span>
+                <div class="row__v">
+                  <p>One iOS app scores each sport on its own rules, streams over RTMP, auto-clips highlights, and shares a web box score at <code>stathlon.com</code>.</p>
+                  <figure class="row__shot row__shot--phone">
+                    <img src="assets/stathlon/highlights.png" loading="lazy"
+                         alt="Stathlon highlights and box score after a volleyball match." />
+                    <figcaption>Auto-clipped highlights, with the box score attached.</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="row">
+                <span class="row__k">03 / Hard part</span>
+                <p class="row__v">Every sport needs its own rules engine — and when api.video's US cloud shut down mid-build, streaming was re-architected onto <em>AWS IVS</em> rather than stall. A native Swift scoreboard overlay and an RLS team-access chain gate every event.</p>
+              </div>
+              <div class="row">
+                <span class="row__k">04 / PM insight</span>
+                <p class="row__v">The insight was the gap: baseball already has good apps, so Stathlon leads with the sports they ignore — flag football and volleyball. It's a full production app — social login, StoreKit in-app purchases, and live AWS IVS video streaming — that held scope and shipped new sports incrementally through CI/CD to TestFlight.</p>
+              </div>
+              <div class="expand__links">
+                <a href="https://stathlon.com" target="_blank" rel="noopener">stathlon.com ↗</a>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="featured reveal" style="--accent:#22D3EE; --accent-soft:rgba(34,211,238,.12);">
+        <div class="featured__main">
+          <div class="featured__head">
+            <div class="featured__badge">
+              <span class="status status--live"></span>Live · geoprowl.com
+            </div>
+            <div class="featured__icon">
+              <img src="assets/geoprowl/logo.png" alt="GeoProwl logo" />
+            </div>
+          </div>
+
+          <h3 class="featured__title">GeoProwl</h3>
+          <p class="featured__tagline">Games my kids actually learn from.</p>
+          <p class="featured__hook">
+            My kids' school software dressed up empty games as "educational."
+            GeoProwl is the answer — led by a daily challenge whose clues an LLM
+            writes from real government data, plus games I built for my own kids.
+          </p>
+
+          <div class="featured__cta">
+            <a class="store-badge store-badge--web" href="https://geoprowl.com" target="_blank" rel="noopener">
+              Play GeoProwl <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div class="shots">
+            <figure class="shot">
+              <img src="assets/geoprowl/daily-map.png" loading="lazy"
+                   alt="GeoProwl Daily — a US map mission with cryptic clues generated from real data." />
+              <figcaption>GeoProwl Daily — clues an LLM writes from real data.gov data.</figcaption>
+            </figure>
+          </div>
+
+          <ul class="chips">
+            <li>Next.js</li>
+            <li>TypeScript</li>
+            <li>LLM clue-gen</li>
+            <li>data.gov API</li>
+            <li>NGSS-aligned</li>
+          </ul>
+
+          <details class="expand">
+            <summary>
+              <span class="expand__label">The ship-cycle</span>
+              <span class="expand__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="expand__body">
+              <div class="row">
+                <span class="row__k">01 / Problem</span>
+                <p class="row__v">The "educational" games my kids got at school were just games — no real substance, and no way to know what was behind them.</p>
+              </div>
+              <div class="row">
+                <span class="row__k">02 / Solution</span>
+                <div class="row__v">
+                  <p>GeoProwl Daily leads — an LLM turns real <code>data.gov</code> data into a fair, solvable daily puzzle. Then come the games I built for my kids: Just States, Four Fours, and Lunar Landing.</p>
+                  <figure class="row__shot row__shot--wide">
+                    <img src="assets/geoprowl/four-fours.png" loading="lazy"
+                         alt="GeoProwl Four Fours — build the target number using exactly four 4s." />
+                    <figcaption>Four Fours — one of three games built for my kids.</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="row">
+                <span class="row__k">03 / Hard part</span>
+                <p class="row__v">The daily puzzle has to be fair and solvable every time — so the pipeline pulls real <code>data.gov</code> figures, has an LLM draft clues from them, and validates each one before it reaches a kid.</p>
+              </div>
+              <div class="row">
+                <span class="row__k">04 / PM insight</span>
+                <p class="row__v">Built for a real user I know well — my own kids. Each game is something I can stand behind because I know exactly what's under it, and new modules ship on a cadence rather than as a one-off.</p>
+              </div>
+              <div class="expand__links">
+                <a href="https://geoprowl.com/figure-it-out/four-fours-challenge" target="_blank" rel="noopener">Four Fours ↗</a>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+    </section>
+
+    <!-- ─── Project grid (stubs to replicate) ─────────── -->
+    <section class="work">
+      <div class="section-head reveal">
+        <span class="section-head__num">02</span>
+        <h2>More projects</h2>
+      </div>
+
+      <div class="grid">
+        <article class="card reveal" style="--accent:#8B5CF6;--accent-soft:rgba(139,92,246,.12);">
+          <div class="card__head">
+            <span class="status status--live"></span>
+            <span class="card__kicker">Backend · Video</span>
+          </div>
+          <h3 class="card__title">Clipping API</h3>
+          <p class="card__tagline">Cut a recorded game into shareable highlight clips — ffmpeg on Lambda, a branded intro card, stored on R2.</p>
+          <ul class="chips chips--sm">
+            <li>AWS Lambda</li><li>ffmpeg</li><li>Cloudflare R2</li><li>AWS SAM</li>
+          </ul>
+          <div class="endpoints">
+            <span class="endpoints__label">API surface</span>
+            <ul>
+              <li><span class="m">POST</span><code>/extract-clip</code><em>request a clip — startMs/endMs, metadata, format</em></li>
+              <li><span class="m">POST</span><code>/r2-signed-url</code><em>presigned R2 — PUT upload / GET download, multipart</em></li>
+              <li><span class="m">POST</span><code>clip-extract</code><em>Lambda URL — ffmpeg cut → intro card → R2</em></li>
+            </ul>
+          </div>
+          <div class="card__why">
+            <span class="card__why-label">Why it's interesting</span>
+            <p>It's a self-contained micro-service — one ffmpeg Lambda behind a clean POST contract — that Stathlon calls without knowing how it works. Pulling the heavy video processing out of the app kept the client thin and let this piece scale and deploy on its own. A small but genuinely end-to-end slice of a much larger product: presign → cut → brand → store → return.</p>
+          </div>
+        </article>
+
+        <article class="card reveal" style="--accent:#3B82F6;--accent-soft:rgba(59,130,246,.12);">
+          <div class="card__head">
+            <span class="status status--build"></span>
+            <span class="card__kicker">Data · Analytics</span>
+          </div>
+          <h3 class="card__title">Search Pulse</h3>
+          <p class="card__tagline">Turn Search Console data into ranked, ready-to-act SEO recommendations.</p>
+          <ul class="chips chips--sm">
+            <li>GSC API</li><li>Next.js</li><li>Supabase</li>
+          </ul>
+          <figure class="card__shot">
+            <img src="assets/search-pulse/geoprowl-report.png" loading="lazy"
+                 alt="A Search Pulse content-recommendations report generated for GeoProwl from Search Console data." />
+            <figcaption>Real output — GeoProwl content recommendations.</figcaption>
+          </figure>
+          <div class="card__why">
+            <span class="card__why-label">Why it's interesting</span>
+            <p>Search Pulse is the analytics engine behind my own sites, built as a standalone service: it pulls Google Search Console data, ranks the opportunities, and emits a ready-to-act report like the GeoProwl one above. Validating it on one real site first means it can point at any property next — the same pattern as the Clipping API, a constrained end-to-end tool that plugs into a bigger whole.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ─── Approach ──────────────────────────────────── -->
+    <section id="approach" class="approach">
+      <div class="section-head reveal">
+        <span class="section-head__num">03</span>
+        <h2>How I work</h2>
+      </div>
+      <div class="approach__grid">
+        <div class="approach__item reveal">
+          <h4>Scope to the job</h4>
+          <p>Build the minimum that satisfies the real job-to-be-done. The maturity is in what's left out.</p>
+        </div>
+        <div class="approach__item reveal">
+          <h4>Ship through constraints</h4>
+          <p>Platform reviews, API limits, lifecycle quirks — I treat constraints as the work, not the blocker.</p>
+        </div>
+        <div class="approach__item reveal">
+          <h4>Own the full cycle</h4>
+          <p>From idea and architecture to store review, deploy, and iteration — accountable end to end.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ─── Footer ──────────────────────────────────────── -->
+  <footer class="footer">
+    <div>
+      <p class="footer__name">Chris McAndrew</p>
+      <p class="footer__line">Problem to solution, on repeat.</p>
+    </div>
+    <div class="footer__links">
+      <a href="mailto:mcandrew.chris@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/christophermcandrew/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/cbmca" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
