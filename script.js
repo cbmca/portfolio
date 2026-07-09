@@ -17,3 +17,26 @@ if (!reduce && "IntersectionObserver" in window) {
 } else {
   document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
 }
+
+// Scroll progress bar
+const progressBar = document.querySelector(".progress__bar");
+if (progressBar) {
+  let ticking = false;
+  const updateProgress = () => {
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? Math.min(1, Math.max(0, window.scrollY / docHeight)) : 0;
+    progressBar.style.transform = `scaleX(${pct})`;
+    ticking = false;
+  };
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        requestAnimationFrame(updateProgress);
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
+  updateProgress();
+}
