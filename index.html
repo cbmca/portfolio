@@ -329,6 +329,10 @@
               <li><span class="m">POST</span><code>clip-extract</code><em>Lambda URL — ffmpeg cut → intro card → R2</em></li>
             </ul>
           </div>
+          <figure class="card__shot">
+            <video src="assets/clipping-api/clipping-demo.mp4" poster="assets/clipping-api/clipping-demo-poster.jpg" controls preload="none" playsinline></video>
+            <figcaption>Real output — a raw game recording auto-cut into a branded highlight clip.</figcaption>
+          </figure>
           <div class="card__why">
             <span class="card__why-label">Why it's interesting</span>
             <p>It's a self-contained micro-service — one ffmpeg Lambda behind a clean POST contract — that Stathlon calls without knowing how it works. Pulling the heavy video processing out of the app kept the client thin and let this piece scale and deploy on its own. A small but genuinely end-to-end slice of a much larger product: presign → cut → brand → store → return.</p>

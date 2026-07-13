@@ -440,7 +440,8 @@ section { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
 
 /* Report thumbnail (Search Pulse card) */
 .card__shot { margin: 18px 0 0; }
-.card__shot img {
+.card__shot img,
+.card__shot video {
   width: 100%;
   display: block;
   border: 1px solid var(--border);
