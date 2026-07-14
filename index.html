@@ -359,6 +359,27 @@
             <p>Search Pulse is the analytics engine behind my own sites, built as a standalone service: it pulls Google Search Console data, ranks the opportunities, and emits a ready-to-act report like the GeoProwl one above. Validating it on one real site first means it can point at any property next — the same pattern as the Clipping API, a constrained end-to-end tool that plugs into a bigger whole.</p>
           </div>
         </article>
+
+        <article class="card reveal" style="--accent:#FF4500;--accent-soft:rgba(255,69,0,.12);">
+          <div class="card__head">
+            <span class="status status--live"></span>
+            <span class="card__kicker">Reddit · Devvit Web</span>
+          </div>
+          <h3 class="card__title">Four Fours</h3>
+          <p class="card__tagline">Same four 4s, same target, every player — a daily math puzzle built natively for Reddit.</p>
+          <ul class="chips chips--sm">
+            <li>Devvit Web</li><li>React</li><li>Hono</li><li>Redis</li><li>TypeScript</li>
+          </ul>
+          <figure class="card__shot">
+            <img src="assets/four-fours/screenshot.png" loading="lazy"
+                 alt="Four Fours running natively inside a Reddit post on r/FourFours." />
+            <figcaption>Live on r/FourFours — the daily puzzle, solved with exactly four 4s.</figcaption>
+          </figure>
+          <div class="card__why">
+            <span class="card__why-label">Why it's interesting</span>
+            <p>Started as a game inside GeoProwl, then rebuilt standalone for Reddit's official app platform — a fully custom React client and Hono server running inside a Reddit post, not an iframe bolted on. The leaderboard is the trust problem: solutions are validated server-side against the day's target before a score counts, so the fastest solve can't just be the most confidently faked one.</p>
+          </div>
+        </article>
       </div>
     </section>
 
